@@ -1,9 +1,18 @@
 # Test suite scripts
 
+## Automated LLVM builds
+
+The `install.sh` script downloads and compiles a release of LLVM, along with
+extra Clang tools and the LLVM test suite. Targeted version can be edited in
+the code. If the script is interrupting, restarting it will gracefully resume
+the build.
+
 ```sh
-install.sh 
+% install.sh 
 ```
-to install llvm
+
+The script can normally be used to rebuild after editing source files, but
+don't take my word for it. Just run `ninja` in the `llvm` directory.
 
 ## Basic usage
 

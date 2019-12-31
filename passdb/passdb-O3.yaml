@@ -1,0 +1,790 @@
+ADCELegacyPass:
+  analysis: false
+  arg: adce
+  file: Transforms/Scalar/ADCE.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - DominatorTreeWrapperPass
+  - PostDominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  - PostDominatorTreeWrapperPass
+  requires:
+  - DominatorTreeWrapperPass
+  - PostDominatorTreeWrapperPass
+  transitive: []
+AggressiveInstCombinerLegacyPass:
+  analysis: false
+  arg: aggressive-instcombine
+  file: Transforms/AggressiveInstCombine/AggressiveInstCombine.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - AAResultsWrapperPass
+  - BasicAAWrapperPass
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - DominatorTreeWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+AlignmentFromAssumptions:
+  analysis: false
+  arg: alignment-from-assumptions
+  file: Transforms/Scalar/AlignmentFromAssumptions.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - AAResultsWrapperPass
+  - GlobalsAAWrapperPass
+  - LoopInfoWrapperPass
+  - DominatorTreeWrapperPass
+  - ScalarEvolutionWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - DominatorTreeWrapperPass
+  - ScalarEvolutionWrapperPass
+  transitive: []
+ArgPromotion:
+  analysis: false
+  arg: argpromotion
+  file: Transforms/IPO/ArgumentPromotion.cpp
+  optional: []
+  preserves: []
+  requires:
+  - AssumptionCacheTracker
+  - CallGraphWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+BDCELegacyPass:
+  analysis: false
+  arg: bdce
+  file: Transforms/Scalar/BDCE.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - GlobalsAAWrapperPass
+  requires:
+  - DemandedBitsWrapperPass
+  transitive: []
+BarrierNoop:
+  analysis: false
+  arg: barrier
+  file: Transforms/IPO/BarrierNoopPass.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+CFGSimplifyPass:
+  analysis: false
+  arg: simplifycfg
+  file: Transforms/Scalar/SimplifyCFGPass.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - TargetTransformInfoWrapperPass
+  transitive: []
+CallSiteSplittingLegacyPass:
+  analysis: false
+  arg: callsite-splitting
+  file: Transforms/Scalar/CallSiteSplitting.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - DominatorTreeWrapperPass
+  requires:
+  - TargetTransformInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+CalledValuePropagationLegacyPass:
+  analysis: false
+  arg: called-value-propagation
+  file: Transforms/IPO/CalledValuePropagation.cpp
+  optional: []
+  parent: ModulePass
+  preserves:
+  - (all)
+  requires: []
+  transitive: []
+ConstantMergeLegacyPass:
+  analysis: false
+  arg: constmerge
+  file: Transforms/IPO/ConstantMerge.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+CorrelatedValuePropagation:
+  analysis: false
+  arg: correlated-propagation
+  file: Transforms/Scalar/CorrelatedValuePropagation.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  requires:
+  - DominatorTreeWrapperPass
+  - LazyValueInfoWrapperPass
+  transitive: []
+DAE:
+  analysis: false
+  arg: deadargelim
+  file: Transforms/IPO/DeadArgumentElimination.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+DSELegacyPass:
+  analysis: false
+  arg: dse
+  file: Transforms/Scalar/DeadStoreElimination.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  - MemoryDependenceWrapperPass
+  requires:
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  - MemoryDependenceWrapperPass
+  - AAResultsWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+DemandedBitsWrapperPass:
+  analysis: false
+  arg: demanded-bits
+  file: Analysis/DemandedBits.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (all)
+  requires:
+  - AssumptionCacheTracker
+  - DominatorTreeWrapperPass
+  transitive: []
+DivRemPairsLegacyPass:
+  analysis: false
+  arg: div-rem-pairs
+  file: Transforms/Scalar/DivRemPairs.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - DominatorTreeWrapperPass
+  - TargetTransformInfoWrapperPass
+  transitive: []
+EarlyCSELegacyPass:
+  analysis: false
+  arg: early-cse
+  file: Transforms/Scalar/EarlyCSE.cpp
+  optional: []
+  preserves: []
+  requires:
+  - AssumptionCacheTracker
+  - DominatorTreeWrapperPass
+  - TargetTransformInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+EarlyCSEMemSSALegacyPass:
+  analysis: false
+  arg: early-cse-memssa
+  file: Transforms/Scalar/EarlyCSE.cpp
+  optional: []
+  preserves: []
+  requires:
+  - AssumptionCacheTracker
+  - MemorySSAWrapperPass
+  - DominatorTreeWrapperPass
+  - TargetTransformInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+EliminateAvailableExternallyLegacyPass:
+  analysis: false
+  arg: elim-avail-extern
+  file: Transforms/IPO/ElimAvailExtern.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+EntryExitInstrumenter:
+  analysis: false
+  arg: ee-instrument
+  file: Transforms/Utils/EntryExitInstrumenter.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  requires: []
+  transitive: []
+Float2IntLegacyPass:
+  analysis: false
+  arg: float2int
+  file: Transforms/Scalar/Float2Int.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - GlobalsAAWrapperPass
+  requires: []
+  transitive: []
+ForceFunctionAttrsLegacyPass:
+  analysis: false
+  arg: forceattrs
+  file: Transforms/IPO/ForceFunctionAttrs.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+GVNLegacyPass:
+  analysis: false
+  arg: gvn
+  file: Transforms/Scalar/GVN.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  - TargetLibraryInfoWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - OptimizationRemarkEmitterWrapperPass
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  - MemoryDependenceWrapperPass
+  - AAResultsWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+GlobalDCELegacyPass:
+  analysis: false
+  arg: globaldce
+  file: Transforms/IPO/GlobalDCE.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+GlobalOptLegacyPass:
+  analysis: false
+  arg: globalopt
+  file: Transforms/IPO/GlobalOpt.cpp
+  optional: []
+  parent: ModulePass
+  preserves: []
+  requires:
+  - BlockFrequencyInfoWrapperPass
+  - DominatorTreeWrapperPass
+  - TargetTransformInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+IPSCCPLegacyPass:
+  analysis: false
+  arg: ipsccp
+  file: Transforms/IPO/SCCP.cpp
+  optional: []
+  parent: ModulePass
+  preserves: []
+  requires:
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+IndVarSimplifyLegacyPass:
+  analysis: false
+  arg: indvars
+  file: Transforms/Scalar/IndVarSimplify.cpp
+  optional: []
+  parent: LoopPass
+  preserves:
+  - (cfg)
+  requires:
+  - LoopPass
+  transitive: []
+InferFunctionAttrsLegacyPass:
+  analysis: false
+  arg: inferattrs
+  file: Transforms/IPO/InferFunctionAttrs.cpp
+  optional: []
+  parent: ModulePass
+  preserves: []
+  requires:
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+InstSimplifyLegacyPass:
+  analysis: false
+  arg: instsimplify
+  file: Transforms/Scalar/InstSimplifyPass.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  requires:
+  - AssumptionCacheTracker
+  - OptimizationRemarkEmitterWrapperPass
+  - DominatorTreeWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+InstructionCombiningPass:
+  analysis: false
+  arg: instcombine
+  file: Transforms/InstCombine/InstructionCombining.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - DominatorTreeWrapperPass
+  - AAResultsWrapperPass
+  - BasicAAWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - OptimizationRemarkEmitterWrapperPass
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  - AAResultsWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+JumpThreading:
+  analysis: false
+  arg: jump-threading
+  file: Transforms/Scalar/JumpThreading.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - DominatorTreeWrapperPass
+  - LazyValueInfoWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - AAResultsWrapperPass
+  - DominatorTreeWrapperPass
+  - LazyValueInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+LCSSAVerificationPass:
+  analysis: false
+  arg: lcssa-verification
+  file: Analysis/LoopPass.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (all)
+  requires: []
+  transitive: []
+LCSSAWrapperPass:
+  analysis: false
+  arg: lcssa
+  file: Transforms/Utils/LCSSA.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - AAResultsWrapperPass
+  - BasicAAWrapperPass
+  - GlobalsAAWrapperPass
+  - ScalarEvolutionWrapperPass
+  - SCEVAAWrapperPass
+  - LCSSAVerificationPass
+  requires:
+  - DominatorTreeWrapperPass
+  - LCSSAVerificationPass
+  - LoopInfoWrapperPass
+  transitive: []
+LegacyLICMPass:
+  analysis: false
+  arg: licm
+  file: Transforms/Scalar/LICM.cpp
+  optional: []
+  parent: LoopPass
+  preserves:
+  - DominatorTreeWrapperPass
+  - LoopInfoWrapperPass
+  requires:
+  - LoopPass
+  - MemorySSAWrapperPass
+  - TargetTransformInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+LegacyLoopSinkPass:
+  analysis: false
+  arg: loop-sink
+  file: Transforms/Scalar/LoopSink.cpp
+  optional: []
+  parent: LoopPass
+  preserves:
+  - (cfg)
+  requires:
+  - BlockFrequencyInfoWrapperPass
+  - LoopPass
+  transitive: []
+LibCallsShrinkWrapLegacyPass:
+  analysis: false
+  arg: libcalls-shrinkwrap
+  file: Transforms/Utils/LibCallsShrinkWrap.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+LoopDeletionLegacyPass:
+  analysis: false
+  arg: loop-deletion
+  file: Transforms/Scalar/LoopDeletion.cpp
+  optional: []
+  parent: LoopPass
+  preserves: []
+  requires:
+  - LoopPass
+  transitive: []
+LoopDistributeLegacy:
+  analysis: false
+  arg: loop-distribute
+  file: Transforms/Scalar/LoopDistribute.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - LoopInfoWrapperPass
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - OptimizationRemarkEmitterWrapperPass
+  - DominatorTreeWrapperPass
+  - ScalarEvolutionWrapperPass
+  - LoopAccessLegacyAnalysis
+  - LoopInfoWrapperPass
+  transitive: []
+LoopIdiomRecognizeLegacyPass:
+  analysis: false
+  arg: loop-idiom
+  file: Transforms/Scalar/LoopIdiomRecognize.cpp
+  optional: []
+  parent: LoopPass
+  preserves: []
+  requires:
+  - LoopPass
+  - TargetTransformInfoWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+LoopLoadElimination:
+  analysis: false
+  arg: loop-load-elim
+  file: Transforms/Scalar/LoopLoadElimination.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - LoopInfoWrapperPass
+  - DominatorTreeWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - LoopSimplify
+  - DominatorTreeWrapperPass
+  - ScalarEvolutionWrapperPass
+  - LoopAccessLegacyAnalysis
+  - LoopInfoWrapperPass
+  transitive: []
+LoopRotateLegacyPass:
+  analysis: false
+  arg: loop-rotate
+  file: Transforms/Scalar/LoopRotation.cpp
+  optional: []
+  parent: LoopPass
+  preserves: []
+  requires:
+  - AssumptionCacheTracker
+  - LoopPass
+  - TargetTransformInfoWrapperPass
+  transitive: []
+LoopSimplify:
+  analysis: false
+  arg: loop-simplify
+  file: Transforms/Utils/LoopSimplify.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - DominatorTreeWrapperPass
+  - LoopInfoWrapperPass
+  - BasicAAWrapperPass
+  - AAResultsWrapperPass
+  - GlobalsAAWrapperPass
+  - ScalarEvolutionWrapperPass
+  - SCEVAAWrapperPass
+  - DependenceAnalysisWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - DominatorTreeWrapperPass
+  - LoopInfoWrapperPass
+  transitive: []
+LoopUnroll:
+  analysis: false
+  arg: loop-unroll
+  file: Transforms/Scalar/LoopUnrollPass.cpp
+  optional: []
+  parent: LoopPass
+  preserves: []
+  requires:
+  - AssumptionCacheTracker
+  - LoopPass
+  - TargetTransformInfoWrapperPass
+  transitive: []
+LoopUnswitch:
+  analysis: false
+  arg: loop-unswitch
+  file: Transforms/Scalar/LoopUnswitch.cpp
+  optional: []
+  parent: LoopPass
+  preserves: []
+  requires:
+  - DivergenceAnalysis
+  - AssumptionCacheTracker
+  - LoopPass
+  - TargetTransformInfoWrapperPass
+  transitive: []
+LoopVectorize:
+  analysis: false
+  arg: loop-vectorize
+  file: Transforms/Vectorize/LoopVectorize.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - LoopInfoWrapperPass
+  - DominatorTreeWrapperPass
+  - BasicAAWrapperPass
+  - GlobalsAAWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - BlockFrequencyInfoWrapperPass
+  - OptimizationRemarkEmitterWrapperPass
+  - GlobalsAAWrapperPass
+  - BasicAAWrapperPass
+  - DemandedBitsWrapperPass
+  - DominatorTreeWrapperPass
+  - ScalarEvolutionWrapperPass
+  - TargetTransformInfoWrapperPass
+  - LoopAccessLegacyAnalysis
+  - AAResultsWrapperPass
+  - LoopInfoWrapperPass
+  transitive: []
+LowerExpectIntrinsic:
+  analysis: false
+  arg: lower-expect
+  file: Transforms/Scalar/LowerExpectIntrinsic.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+MemCpyOptLegacyPass:
+  analysis: false
+  arg: memcpyopt
+  file: Transforms/Scalar/MemCpyOptimizer.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - GlobalsAAWrapperPass
+  - MemoryDependenceWrapperPass
+  requires:
+  - AssumptionCacheTracker
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  - MemoryDependenceWrapperPass
+  - AAResultsWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+MergedLoadStoreMotionLegacyPass:
+  analysis: false
+  arg: mldst-motion
+  file: Transforms/Scalar/MergedLoadStoreMotion.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - GlobalsAAWrapperPass
+  requires:
+  - AAResultsWrapperPass
+  transitive: []
+PGOMemOPSizeOptLegacyPass:
+  analysis: false
+  arg: pgo-memop-opt
+  file: Transforms/Instrumentation/PGOMemOPSizeOpt.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  - DominatorTreeWrapperPass
+  requires:
+  - BlockFrequencyInfoWrapperPass
+  - OptimizationRemarkEmitterWrapperPass
+  transitive: []
+PostOrderFunctionAttrsLegacyPass:
+  analysis: false
+  arg: functionattrs
+  file: Transforms/IPO/FunctionAttrs.cpp
+  optional: []
+  parent: CallGraphSCCPass
+  preserves:
+  - (cfg)
+  requires:
+  - AssumptionCacheTracker
+  - CallGraphWrapperPass
+  transitive: []
+PromoteLegacyPass:
+  analysis: false
+  arg: mem2reg
+  file: Transforms/Utils/Mem2Reg.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  requires:
+  - AssumptionCacheTracker
+  - DominatorTreeWrapperPass
+  transitive: []
+PruneEH:
+  analysis: false
+  arg: prune-eh
+  file: Transforms/IPO/PruneEH.cpp
+  optional: []
+  preserves: []
+  requires:
+  - CallGraphWrapperPass
+  transitive: []
+ReassociateLegacyPass:
+  analysis: false
+  arg: reassociate
+  file: Transforms/Scalar/Reassociate.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (cfg)
+  - GlobalsAAWrapperPass
+  requires: []
+  transitive: []
+ReversePostOrderFunctionAttrsLegacyPass:
+  analysis: false
+  arg: rpo-functionattrs
+  file: Transforms/IPO/FunctionAttrs.cpp
+  optional: []
+  parent: ModulePass
+  preserves:
+  - (cfg)
+  - CallGraphWrapperPass
+  requires:
+  - CallGraphWrapperPass
+  transitive: []
+SCCPLegacyPass:
+  analysis: false
+  arg: sccp
+  file: Transforms/Scalar/SCCP.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  - (cfg)
+  requires:
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+SLPVectorizer:
+  analysis: false
+  arg: slp-vectorizer
+  file: Transforms/Vectorize/SLPVectorizer.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - LoopInfoWrapperPass
+  - DominatorTreeWrapperPass
+  - AAResultsWrapperPass
+  - GlobalsAAWrapperPass
+  - (cfg)
+  requires:
+  - AssumptionCacheTracker
+  - OptimizationRemarkEmitterWrapperPass
+  - DemandedBitsWrapperPass
+  - DominatorTreeWrapperPass
+  - LoopSimplify
+  - ScalarEvolutionWrapperPass
+  - TargetTransformInfoWrapperPass
+  - AAResultsWrapperPass
+  - LoopInfoWrapperPass
+  transitive: []
+SROALegacyPass:
+  analysis: false
+  arg: sroa
+  file: Transforms/Scalar/SROA.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  - (cfg)
+  requires:
+  - AssumptionCacheTracker
+  - DominatorTreeWrapperPass
+  transitive: []
+SimpleInliner:
+  analysis: false
+  arg: inline
+  file: Transforms/IPO/InlineSimple.cpp
+  optional: []
+  parent: LegacyInlinerBase
+  preserves: []
+  requires:
+  - AssumptionCacheTracker
+  - ProfileSummaryInfoWrapperPass
+  - TargetTransformInfoWrapperPass
+  - CallGraphWrapperPass
+  - TargetLibraryInfoWrapperPass
+  transitive: []
+SpeculativeExecutionLegacyPass:
+  analysis: false
+  arg: speculative-execution
+  file: Transforms/Scalar/SpeculativeExecution.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  - (cfg)
+  requires:
+  - TargetTransformInfoWrapperPass
+  transitive: []
+StripDeadPrototypesLegacyPass:
+  analysis: false
+  arg: strip-dead-prototypes
+  file: Transforms/IPO/StripDeadPrototypes.cpp
+  optional: []
+  preserves: []
+  requires: []
+  transitive: []
+TailCallElim:
+  analysis: false
+  arg: tailcallelim
+  file: Transforms/Scalar/TailRecursionElimination.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - GlobalsAAWrapperPass
+  requires:
+  - AAResultsWrapperPass
+  - TargetTransformInfoWrapperPass
+  - OptimizationRemarkEmitterWrapperPass
+  transitive: []
+VerifierLegacyPass:
+  analysis: false
+  arg: verify
+  file: IR/Verifier.cpp
+  optional: []
+  parent: FunctionPass
+  preserves:
+  - (all)
+  requires: []
+  transitive: []

@@ -1,0 +1,1 @@
+-tti -tbaa -scoped-noalias -assumption-cache-tracker -targetlibinfo -ee-instrument -simplifycfg -domtree -sroa -early-cse -lower-expect

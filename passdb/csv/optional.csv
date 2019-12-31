@@ -1,0 +1,9 @@
+name,link
+AAResultsWrapperPass,ScopedNoAliasAAWrapperPass
+AAResultsWrapperPass,TypeBasedAAWrapperPass
+AAResultsWrapperPass,objcarc
+AAResultsWrapperPass,GlobalsAAWrapperPass
+AAResultsWrapperPass,SCEVAAWrapperPass
+AAResultsWrapperPass,CFLAndersAAWrapperPass
+AAResultsWrapperPass,CFLSteensAAWrapperPass
+BasicAAWrapperPass,PhiValuesWrapperPass
